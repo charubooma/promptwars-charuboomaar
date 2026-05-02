@@ -3,8 +3,7 @@ import { useAppContext } from '../context/AppContext';
 
 export const Navbar: React.FC<{
   onToggleSidebar: () => void;
-  onOpenGemini: () => void;
-}> = ({ onToggleSidebar, onOpenGemini }) => {
+}> = ({ onToggleSidebar }) => {
   const { user } = useAppContext();
   const [searchFocused, setSearchFocused] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);

@@ -41,7 +41,7 @@ const TaskCard: React.FC<{ task: Task; accentColor: string }> = ({ task, accentC
       exit={{ opacity: 0, scale: 0.9 }}
       whileHover={{ y: -4, transition: { type: 'spring', stiffness: 400, damping: 20 } }}
       draggable
-      onDragStart={e => e.dataTransfer.setData('taskId', task.id)}
+      onDragStart={(e: unknown) => (e as React.DragEvent).dataTransfer.setData('taskId', task.id)}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{

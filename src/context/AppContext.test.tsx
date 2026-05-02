@@ -1,7 +1,6 @@
 import { renderHook, act } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 import { AppProvider, useAppContext } from './AppContext';
-import React from 'react';
 
 describe('AppContext Task Management Logic', () => {
   it('should initialize with default tasks', () => {

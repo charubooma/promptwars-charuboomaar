@@ -18,6 +18,12 @@ const AppShell: React.FC = () => {
   const { isLoggedIn } = useAppContext();
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [geminiOpen, setGeminiOpen] = useState(false);
+  const [activeView, setActiveView] = useState('board');
+
+  const handleViewChange = (view: string) => {
+    if (view === 'gemini') { setGeminiOpen(true); return; }
+    setActiveView(view);
+  };
 
   return (
     <AnimatePresence mode="wait">
@@ -39,7 +45,7 @@ const AppShell: React.FC = () => {
           {/* Body: sidebar + main + right panel */}
           <div style={{ display: 'flex', flex: 1, overflow: 'hidden', minHeight: 0 }}>
             {/* Left sidebar */}
-            <Sidebar isOpen={sidebarOpen} />
+            <Sidebar isOpen={sidebarOpen} activeView={activeView} onViewChange={handleViewChange} />
 
             {/* Main Kanban area */}
             <main style={{ flex: 1, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
